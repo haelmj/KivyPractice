@@ -24,7 +24,7 @@ class SignUpScreen(Screen):
 class SignUpScreenSuccess(Screen):
     def go_to_login(self):
         # set login screen to transition from the right
-        self.manager.transition.direction = 'right'
+        self.manager.transition.direction = 'down'
         self.manager.current = 'Login_screen'
 
 class RootWidget(ScreenManager):
