@@ -95,9 +95,13 @@
         Button:
             text: 'Cheer Me!'
             on_press: root.get_quote(root.ids.mood.text)
-        Label:
-            id: quote
-            text: ""
+        ScrollView:
+            Label:
+                id: quote
+                text: ""
+                text_size: self.width, None
+                size_hint_y: None
+                height: self.texture_size[1]
 
 ## main widget
 <RootWidget>:
