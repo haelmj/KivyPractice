@@ -1,2 +1,39 @@
+#:kivy !
 <LoginScreen>:
-    
+    GridLayout:
+        cols: 1
+        GridLayout:
+            cols: 1
+            Label:
+                text: "User Login"
+            TextInput:
+                hint_text: "Username"
+            TextInput:
+                hint_text: "Password"
+            Button:
+                text: "Login"
+        GridLayout:
+            cols: 2
+            Button:
+                text: "Forgot Password"
+            Button:
+                text: "Sign Up"
+                on_press: root.sign_up()
+
+<SignUpScreen>:
+    GridLayout:
+        cols: 1
+        Label:
+            text: 'Sign Up To Proceed'
+        TextInput:
+            hint_text: 'Username'
+        TextInput:
+            hint_text: 'Password'
+        Button:
+            text: 'Submit'
+
+<RootWidget>:
+    LoginScreen:
+        name: 'Login_screen'
+    SignUpScreen:
+        name: 'Sign_up_screen'
