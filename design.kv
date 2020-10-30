@@ -62,10 +62,13 @@
         Label:
             text: 'How do you feel?'
         TextInput:
+            id: mood
             hint_text: 'Try: happy, sad, unloved...'
         Button:
             text: 'Cheer Me!'
+            on_press: root.get_quote(root.ids.mood.text)
         Label:
+            id: quote
             text: ""
 
 ## main widget

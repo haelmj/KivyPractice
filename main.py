@@ -2,7 +2,9 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from datetime import datetime
-import json
+import json, glob
+from pathlib import Path
+import random
 
 Builder.load_file('design.kv')
 
@@ -39,6 +41,17 @@ class LoginScreenSuccess(Screen):
     def log_out(self):
         self.manager.transition.direction = 'right'
         self.manager.current = 'Login_screen'
+    def get_quote(self, mood):
+        mood = mood.lower()
+        available_mood = glob.glob("quotes/*txt") # get names of all files in quotes folder
+        available_mood = [Path(filename).stem for filename in available_mood]
+        print(available_mood)
+        if mood in available_mood:
+            with open(f"quotes/{mood}.txt", encoding='utf-8') as file:
+                quotes = file.readlines()
+            self.ids.quote.text = random.choice(quotes)
+        else:
+            self.ids.quote.text = 'Choose either happy, sad or unloved!'
 
 class RootWidget(ScreenManager):
     pass
