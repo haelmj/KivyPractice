@@ -4,12 +4,14 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 Builder.load_file('design.kv')
 
-class SignUpScreen(Screen):
-    pass
 
 class LoginScreen(Screen):
     def sign_up(self):
-        self.manager.current = 'Lign_up_screen'
+        self.manager.current = 'Sign_up_screen'
+
+class SignUpScreen(Screen):
+    def add_user(self, username, password):
+        print(username, password)
 
 class RootWidget(ScreenManager):
     pass

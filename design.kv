@@ -1,6 +1,7 @@
-#:kivy !
+#:kivy 1.0
 <LoginScreen>:
     GridLayout:
+    # set number of columns to 1
         cols: 1
         GridLayout:
             cols: 1
@@ -18,6 +19,7 @@
                 text: "Forgot Password"
             Button:
                 text: "Sign Up"
+                ## on press, call the sign_up method of the root(LoginScreen)
                 on_press: root.sign_up()
 
 <SignUpScreen>:
@@ -26,12 +28,17 @@
         Label:
             text: 'Sign Up To Proceed'
         TextInput:
+            id: username
             hint_text: 'Username'
         TextInput:
+            id: password
             hint_text: 'Password'
         Button:
             text: 'Submit'
+            ## on press, call the add_user function of the SignUpScreen class and pass in parameters using the id
+            on_press: root.add_user(root.ids.username.text, root.ids.password.text)
 
+## main widget
 <RootWidget>:
     LoginScreen:
         name: 'Login_screen'
